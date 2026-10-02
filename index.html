@@ -2,25 +2,851 @@
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Chandra Ji Sweets</title>
+
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#fffaf0;color:#211817}
-header{position:sticky;top:0;z-index:99;background:#17151a;color:#fff;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
-.logo{font-size:20px;font-weight:bold}.logo span{color:#f5c542}.logo small{display:block;font-size:10px;color:#ddd}
-nav{display:flex;gap:15px}nav a{color:#fff;text-decoration:none;font-size:14px}
-.btn{border:0;border-radius:25px;padding:11px 16px;font-weight:bold;cursor:pointer;display:inline-block;text-decoration:none}
-.red{background:#e51b3e;color:#fff}.green{background:#12a95a;color:#fff}.gold{background:#f5c542;color:#211817}.dark{background:#222;color:#fff}
-.hero{background:linear-gradient(90deg,#160b08ee,#160b0860),linear-gradient(135deg,#6d1d0d,#d99b24,#35120b);color:#fff;padding:65px 18px}
-.heroBox{max-width:1100px;margin:auto}.badge{display:inline-block;background:#f5c542;color:#3b2500;padding:7px 13px;border-radius:20px;font-weight:bold}
-h1{font-size:clamp(42px,8vw,72px);margin:15px 0}.hero h1 span{color:#f5c542}
-.hero p{font-size:17px;max-width:650px}.rating{color:#ffd22f;font-weight:bold;font-size:18px}
-.buttons{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
-.categories{background:#fff;padding:15px}.categoryBox{max-width:1100px;margin:auto;display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
-.category{text-align:center;padding:10px;border-radius:15px;font-weight:bold;text-decoration:none;color:#222}.category:hover{background:#fff0bd}
-.emoji{font-size:32px;display:block}
-section{max-width:1150px;margin:auto;padding:38px 16px}.title{font-size:30px;margin-bottom:5px}.subtitle{color:#746b68;margin-bottom:20px}
-.menu{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.card{background:#fff;border:1px solid #eadfd8;border-radius:18px;overflow:hidden;box-shadow:0 4px 14px #0000000d}
-.foodImg{height:155px;display:flex;align-items:center;justify-content:center;font-size:65px;background:
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#fff8ef;
+  color:#222;
+}
+header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:#8b0000;
+  color:white;
+  padding:12px 15px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.logo{font-size:20px;font-weight:bold}
+.headerBtns{display:flex;gap:8px}
+button{
+  border:0;
+  border-radius:10px;
+  padding:10px 14px;
+  font-size:15px;
+  cursor:pointer;
+}
+.adminBtn{background:#ffd166;color:#222}
+.cartBtn{background:white;color:#8b0000}
+
+.hero{
+  background:linear-gradient(135deg,#8b0000,#d62828);
+  color:white;
+  text-align:center;
+  padding:45px 18px;
+}
+.hero h1{font-size:40px;margin:10px 0}
+.hero p{font-size:17px;line-height:1.6}
+.rating{font-size:18px;margin:15px 0}
+
+.actionBtns{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:20px;
+}
+.whatsapp{background:#25d366;color:white}
+.call{background:#fff;color:#8b0000}
+.maps{background:#ffd166;color:#222}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:25px 15px;
+}
+h2{
+  text-align:center;
+  color:#8b0000;
+  margin:15px 0 5px;
+}
+.sub{
+  text-align:center;
+  color:#666;
+  margin-bottom:25px;
+}
+
+.categories{
+  display:flex;
+  gap:10px;
+  overflow-x:auto;
+  padding:10px 0 20px;
+}
+.category{
+  background:white;
+  border:1px solid #eee;
+  border-radius:30px;
+  padding:10px 16px;
+  white-space:nowrap;
+}
+
+.menu{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:15px;
+}
+.card{
+  background:white;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 3px 15px rgba(0,0,0,.1);
+  border:1px solid #eee;
+}
+.foodPic{
+  height:145px;
+  background:linear-gradient(135deg,#ffe5b4,#fff);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:70px;
+}
+.cardBody{padding:15px}
+.card h3{margin:0 0 8px;color:#8b0000}
+.size{color:#777;font-size:14px}
+.price{
+  font-size:20px;
+  font-weight:bold;
+  margin:10px 0;
+}
+.add{
+  width:100%;
+  background:#8b0000;
+  color:white;
+}
+
+.infoGrid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:15px;
+  margin-top:25px;
+}
+.info{
+  background:white;
+  padding:20px;
+  border-radius:15px;
+  box-shadow:0 2px 10px rgba(0,0,0,.07);
+  text-align:center;
+}
+
+footer{
+  margin-top:30px;
+  background:#4b0000;
+  color:white;
+  text-align:center;
+  padding:25px 15px;
+}
+
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.65);
+  z-index:999;
+  padding:15px;
+  overflow:auto;
+}
+.box{
+  background:white;
+  max-width:500px;
+  margin:40px auto;
+  padding:20px;
+  border-radius:18px;
+}
+.box h2{margin-top:0}
+input{
+  width:100%;
+  padding:12px;
+  margin:7px 0 12px;
+  border:1px solid #ccc;
+  border-radius:8px;
+  font-size:16px;
+}
+.close{
+  float:right;
+  background:#eee;
+}
+.orderItem{
+  padding:8px 0;
+  border-bottom:1px solid #eee;
+}
+.total{
+  font-size:20px;
+  font-weight:bold;
+  margin:15px 0;
+}
+.adminProduct{
+  border:1px solid #ddd;
+  padding:10px;
+  margin:8px 0;
+  border-radius:10px;
+}
+.deleteBtn{
+  background:#d62828;
+  color:white;
+}
+.success{
+  background:#e7f8ec;
+  padding:10px;
+  border-radius:8px;
+  color:#146c2e;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">🍬 Chandra Ji Sweets</div>
+  <div class="headerBtns">
+    <button class="adminBtn" onclick="openAdmin()">⚙️ Admin</button>
+    <button class="cartBtn" onclick="openCart()">🛒 <span id="cartCount">0</span></button>
+  </div>
+</header>
+
+<section class="hero">
+  <div>शुद्धता • स्वाद • परंपरा</div>
+  <h1>चंद्रा जी स्वीट्स</h1>
+  <p>
+    ताज़ा, शुद्ध और स्वादिष्ट मिठाइयों, नमकीन और फास्ट फूड
+    का आपका भरोसेमंद स्थान।
+  </p>
+
+  <div class="rating">⭐ 3.9/5 • 742 Reviews</div>
+
+  <div>
+    📍 Kabir Nagar Street, opposite UPSRTC Bus Stand,
+    Noorpur, Uttar Pradesh 246734
+  </div>
+
+  <div class="actionBtns">
+    <button class="whatsapp" onclick="whatsappDirect()">💬 WhatsApp Order</button>
+    <button class="call" onclick="callShop()">📞 Call Now</button>
+    <button class="maps" onclick="openMaps()">📍 Directions</button>
+  </div>
+</section>
+
+<div class="container">
+
+  <div class="categories">
+    <div class="category">🍬 मिठाई</div>
+    <div class="category">🥨 नमकीन</div>
+    <div class="category">🍔 Fast Food</div>
+    <div class="category">☕ चाय / कॉफी</div>
+    <div class="category">🍽️ Special</div>
+  </div>
+
+  <h2>🍯 हमारा मेनू</h2>
+  <div class="sub">हर स्वाद के लिए कुछ खास</div>
+
+  <div id="menu" class="menu"></div>
+
+  <h2 style="margin-top:45px">⭐ हमें क्यों चुनें?</h2>
+
+  <div class="infoGrid">
+    <div class="info">
+      <div style="font-size:40px">🌿</div>
+      <h3>शुद्ध सामग्री</h3>
+      <p>ताज़ी और अच्छी सामग्री</p>
+    </div>
+
+    <div class="info">
+      <div style="font-size:40px">👨‍🍳</div>
+      <h3>पारंपरिक स्वाद</h3>
+      <p>परंपरागत तरीके से तैयारी</p>
+    </div>
+
+    <div class="info">
+      <div style="font-size:40px">₹</div>
+      <h3>उचित कीमत</h3>
+      <p>ग्राहकों के लिए बेहतर मूल्य</p>
+    </div>
+
+    <div class="info">
+      <div style="font-size:40px">😊</div>
+      <h3>अच्छी सेवा</h3>
+      <p>ग्राहक अनुभव हमारी प्राथमिकता</p>
+    </div>
+  </div>
+
+  <h2 style="margin-top:45px">🏪 हमारे बारे में</h2>
+
+  <div class="infoGrid">
+    <div class="info">
+      <h3>📍 पता</h3>
+      <p>
+        Kabir Nagar Street,<br>
+        opposite UPSRTC Bus Stand,<br>
+        Noorpur, Uttar Pradesh 246734
+      </p>
+    </div>
+
+    <div class="info">
+      <h3>🕐 दुकान का समय</h3>
+      <p>रोज़ 8:00 AM – 11:00 PM</p>
+    </div>
+
+    <div class="info">
+      <h3>📞 संपर्क</h3>
+      <p>097195 40541</p>
+      <button class="whatsapp" onclick="whatsappDirect()">
+        WhatsApp
+      </button>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <h3>🍬 Chandra Ji Sweets</h3>
+  <p>स्वाद ऐसा... कि हर कोई आए बार-बार</p>
+  <p>© 2026 Chandra Ji Sweets</p>
+</footer>
+
+
+<!-- CART -->
+<div id="cartModal" class="modal">
+  <div class="box">
+    <button class="close" onclick="closeCart()">✕</button>
+    <h2>🛒 आपका Order</h2>
+
+    <div id="cartItems"></div>
+
+    <div class="total">
+      कुल: ₹<span id="cartTotal">0</span>
+    </div>
+
+    <input id="customerName" placeholder="आपका नाम">
+    <input id="customerPhone" placeholder="मोबाइल नंबर" type="tel">
+
+    <button class="whatsapp" style="width:100%" onclick="sendOrder()">
+      💬 WhatsApp पर Order भेजें
+    </button>
+  </div>
+</div>
+
+
+<!-- ADMIN LOGIN -->
+<div id="adminModal" class="modal">
+  <div class="box">
+    <button class="close" onclick="closeAdmin()">✕</button>
+
+    <h2>🔐 Admin Panel</h2>
+
+    <div id="loginArea">
+      <p>Admin password डालें:</p>
+
+      <input id="adminPassword" type="password" placeholder="Password">
+
+      <button class="adminBtn" onclick="loginAdmin()">
+        Login
+      </button>
+
+      <p style="color:#777">
+        Demo password: 99821
+      </p>
+    </div>
+
+    <div id="adminArea" style="display:none">
+
+      <div class="success">
+        ✅ Admin Login Successful
+      </div>
+
+      <h3>➕ नई Dish जोड़ें</h3>
+
+      <input id="dishName" placeholder="Dish Name">
+      <input id="dishPrice" placeholder="Price जैसे 50">
+      <input id="dishSize" placeholder="Size / Quantity जैसे 1 Plate">
+      <input id="dishEmoji" placeholder="Emoji जैसे 🍯">
+
+      <button class="adminBtn" onclick="addProduct()">
+        ➕ Dish जोड़ें
+      </button>
+
+      <h3>📋 Products</h3>
+
+      <div id="adminProducts"></div>
+
+      <button onclick="resetProducts()" style="margin-top:10px">
+        ↩️ Demo Menu वापस लाएँ
+      </button>
+
+      <button onclick="logoutAdmin()" style="margin-top:10px">
+        Logout
+      </button>
+
+    </div>
+  </div>
+</div>
+
+
+<script>
+
+const DEFAULT_PRODUCTS = [
+
+["प्लेन समोसा","1 पीस",15,"🥟"],
+["दही समोसा","1 पीस",20,"🥟"],
+["छोले समोसा","1 पीस",25,"🥟"],
+["ढोकला","1 Kg",300,"🟨"],
+["ब्रेड पकोड़ा","1 पीस",25,"🥪"],
+["आलू टिक्की","Half / Full",30,"🥔"],
+["दही भल्ला","Half / Full",40,"🥣"],
+["पानी पूरी","5 Pc / 10 Pc",20,"🥗"],
+["दही पूरी","5 Pc / 10 Pc",30,"🥗"],
+["वेज बर्गर","1 Pc",30,"🍔"],
+["पनीर बर्गर","1 Pc",40,"🍔"],
+["चीज बर्गर","1 Pc",50,"🍔"],
+["स्टीम मोमोज","6 Pc / 10 Pc",30,"🥟"],
+["फ्राई मोमोज","6 Pc / 10 Pc",40,"🥟"],
+["पनीर मोमोज","6 Pc / 10 Pc",50,"🥟"],
+["पनीर फ्राई मोमोज","6 Pc / 10 Pc",60,"🥟"],
+["वेज चाउमीन","Half / Full",40,"🍜"],
+["पनीर बटर चाउमीन","Half / Full",70,"🍜"],
+["पाव भाजी","Plate",90,"🍛"],
+["पनीर तंदूरी टिक्का","Half / Full",130,"🍢"],
+["मसाला टिक्का","Half / Full",130,"🍢"],
+["मलाई टिक्का","Half / Full",130,"🍢"],
+["अफगानी टिक्का","Half / Full",130,"🍢"],
+["मलाई चाप","Half / Full",100,"🍢"],
+["मसाला चाप","Half / Full",100,"🍢"],
+["अफगानी चाप","Half / Full",100,"🍢"],
+["तंदूरी चाप","Half / Full",100,"🍢"],
+["गुलाब जामुन","1 Pc",20,"🍩"],
+["रसमलाई","1 Pc",50,"🍮"],
+["छेना खीर","1 Pc",50,"🍮"],
+["मलाई रोल","1 Pc",60,"🍰"],
+["स्पेशल रसगुल्ला","1 Pc",35,"🍡"],
+["चाय","1 Cup",15,"☕"],
+["कॉफी","1 Cup",30,"☕"],
+["क्रीम बटर कॉफी","1 Cup",50,"☕"]
+
+];
+
+let products = [];
+let cart = [];
+
+function loadProducts(){
+
+  try{
+    const saved = localStorage.getItem("chandra_products");
+
+    if(saved){
+      products = JSON.parse(saved);
+    }else{
+      products = DEFAULT_PRODUCTS.slice();
+      saveProducts();
+    }
+
+  }catch(e){
+    products = DEFAULT_PRODUCTS.slice();
+  }
+
+  renderMenu();
+}
+
+function saveProducts(){
+  localStorage.setItem(
+    "chandra_products",
+    JSON.stringify(products)
+  );
+}
+
+function renderMenu(){
+
+  const menu = document.getElementById("menu");
+
+  menu.innerHTML = "";
+
+  products.forEach(function(p,index){
+
+    const card = document.createElement("div");
+
+    card.className = "card";
+
+    card.innerHTML = `
+      <div class="foodPic">${p[3] || "🍴"}</div>
+
+      <div class="cardBody">
+
+        <h3>${escapeHTML(p[0])}</h3>
+
+        <div class="size">
+          ${escapeHTML(p[1])}
+        </div>
+
+        <div class="price">
+          ₹${p[2]}
+        </div>
+
+        <button class="add" onclick="addToCart(${index})">
+          🛒 Add to Cart
+        </button>
+
+      </div>
+    `;
+
+    menu.appendChild(card);
+  });
+}
+
+function escapeHTML(text){
+
+  return String(text)
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+
+}
+
+function addToCart(index){
+
+  cart.push(products[index]);
+
+  updateCartCount();
+
+  alert(
+    products[index][0] +
+    " cart में add हो गया ✅"
+  );
+}
+
+function updateCartCount(){
+
+  document.getElementById("cartCount").textContent =
+    cart.length;
+
+}
+
+function openCart(){
+
+  document.getElementById("cartModal").style.display="block";
+
+  renderCart();
+
+}
+
+function closeCart(){
+
+  document.getElementById("cartModal").style.display="none";
+
+}
+
+function renderCart(){
+
+  const box = document.getElementById("cartItems");
+
+  box.innerHTML="";
+
+  let total=0;
+
+  if(cart.length===0){
+
+    box.innerHTML="<p>आपका cart खाली है।</p>";
+
+  }
+
+  cart.forEach(function(item,index){
+
+    total += Number(item[2]);
+
+    box.innerHTML += `
+      <div class="orderItem">
+        <b>${escapeHTML(item[0])}</b>
+        <br>
+        ${escapeHTML(item[1])} —
+        ₹${item[2]}
+        <button
+          onclick="removeFromCart(${index})"
+          style="float:right;background:#eee">
+          ✕
+        </button>
+      </div>
+    `;
+
+  });
+
+  document.getElementById("cartTotal").textContent =
+    total;
+
+}
+
+function removeFromCart(index){
+
+  cart.splice(index,1);
+
+  updateCartCount();
+
+  renderCart();
+
+}
+
+function sendOrder(){
+
+  if(cart.length===0){
+
+    alert("पहले कोई product cart में add करें।");
+
+    return;
+
+  }
+
+  const name =
+    document.getElementById("customerName").value.trim();
+
+  const phone =
+    document.getElementById("customerPhone").value.trim();
+
+  if(!name){
+
+    alert("अपना नाम डालें।");
+
+    return;
+
+  }
+
+  if(!phone){
+
+    alert("मोबाइल नंबर डालें।");
+
+    return;
+
+  }
+
+  let message =
+    "🍬 *Chandra Ji Sweets Order*%0A%0A";
+
+  message +=
+    "👤 Name: " +
+    encodeURIComponent(name) +
+    "%0A";
+
+  message +=
+    "📱 Mobile: " +
+    encodeURIComponent(phone) +
+    "%0A%0A";
+
+  let total=0;
+
+  cart.forEach(function(item,i){
+
+    total += Number(item[2]);
+
+    message +=
+      (i+1) + ". " +
+      encodeURIComponent(item[0]) +
+      " - ₹" +
+      item[2] +
+      "%0A";
+
+  });
+
+  message +=
+    "%0A💰 Total: ₹" + total;
+
+  window.open(
+    "https://wa.me/919719540541?text=" + message,
+    "_blank"
+  );
+
+}
+
+function whatsappDirect(){
+
+  window.open(
+    "https://wa.me/919719540541?text=" +
+    encodeURIComponent(
+      "Namaste Chandra Ji Sweets, mujhe order karna hai."
+    ),
+    "_blank"
+  );
+
+}
+
+function callShop(){
+
+  window.location.href="tel:+919719540541";
+
+}
+
+function openMaps(){
+
+  window.open(
+    "https://www.google.com/maps/search/?api=1&query=29.149874,78.409434",
+    "_blank"
+  );
+
+}
+
+
+/* ADMIN */
+
+function openAdmin(){
+
+  document.getElementById("adminModal").style.display="block";
+
+}
+
+function closeAdmin(){
+
+  document.getElementById("adminModal").style.display="none";
+
+}
+
+function loginAdmin(){
+
+  const password =
+    document.getElementById("adminPassword").value;
+
+  if(password==="99821"){
+
+    document.getElementById("loginArea").style.display="none";
+
+    document.getElementById("adminArea").style.display="block";
+
+    renderAdmin();
+
+  }else{
+
+    alert("❌ Wrong password");
+
+  }
+
+}
+
+function logoutAdmin(){
+
+  document.getElementById("loginArea").style.display="block";
+
+  document.getElementById("adminArea").style.display="none";
+
+  document.getElementById("adminPassword").value="";
+
+}
+
+function addProduct(){
+
+  const name =
+    document.getElementById("dishName").value.trim();
+
+  const price =
+    Number(document.getElementById("dishPrice").value);
+
+  const size =
+    document.getElementById("dishSize").value.trim();
+
+  const emoji =
+    document.getElementById("dishEmoji").value.trim() || "🍴";
+
+  if(!name || !price){
+
+    alert("Dish name और price डालें।");
+
+    return;
+
+  }
+
+  products.push([
+    name,
+    size || "1 Plate",
+    price,
+    emoji
+  ]);
+
+  saveProducts();
+
+  renderMenu();
+
+  renderAdmin();
+
+  document.getElementById("dishName").value="";
+  document.getElementById("dishPrice").value="";
+  document.getElementById("dishSize").value="";
+  document.getElementById("dishEmoji").value="";
+
+  alert("✅ नई Dish add हो गई!");
+
+}
+
+function renderAdmin(){
+
+  const box =
+    document.getElementById("adminProducts");
+
+  box.innerHTML="";
+
+  products.forEach(function(p,index){
+
+    box.innerHTML += `
+      <div class="adminProduct">
+
+        <b>${p[3]} ${escapeHTML(p[0])}</b>
+
+        <br>
+
+        ₹${p[2]} • ${escapeHTML(p[1])}
+
+        <br><br>
+
+        <button
+          class="deleteBtn"
+          onclick="deleteProduct(${index})">
+          🗑️ Delete
+        </button>
+
+      </div>
+    `;
+
+  });
+
+}
+
+function deleteProduct(index){
+
+  if(confirm("क्या यह product delete करना है?")){
+
+    products.splice(index,1);
+
+    saveProducts();
+
+    renderMenu();
+
+    renderAdmin();
+
+  }
+
+}
+
+function resetProducts(){
+
+  if(confirm("Demo menu वापस लाना है?")){
+
+    products = DEFAULT_PRODUCTS.slice();
+
+    saveProducts();
+
+    renderMenu();
+
+    renderAdmin();
+
+  }
+
+}
+
+
+/* START */
+
+loadProducts();
+
+</script>
+
+</body>
+</html>
